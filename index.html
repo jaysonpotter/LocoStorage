@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="LocalStorage - A Test In LocalStorage" />
+		<meta name="keywords" content="LocalStorage, creative commons" />
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+		<link rel="shortcut icon" href="http://projects.jaysonpotter.com/favicon.ico" />
+		<title>LocalStorage - A Test In LocalStorage</title>
+		<link rel="stylesheet" href="http://projects.jaysonpotter.com/shared/shared.css" />
+	</head>
+	<body>
+	
+		<div id="containYourself">
+			<h1>LocalStorage</h1>
+			<p>Look at your inspector silly!</p>
+			<button id="clearAll">Remove All Local Storage</button>
+		</div>
+		
+		<script>
+		  //OK people it's just a demo. Globals are nasty.
+			window.onload = function(){
+				if(typeof(Storage)){
+				    var removeAllButton = document.getElementById('clearAll');
+				    
+				    localStorage.holdOnToTheMemory = 'forever';
+				    sessionStorage.holdOnToTheMemory = 'till you close the browser';
+				    
+				    this.removeAll = function(){
+    				    localStorage.clear();
+    				    sessionStorage.clear();
+				    }
+				    
+				    removeAllButton.onclick = function(){
+    				    removeAll();
+				    }
+				    
+				} else {
+    				alert("Looks like you're stuck with stail cookies");
+				}
+			}
+		</script>
+		
+	</body>
+</html>
